@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :cars
-  resources :jobs
+  resources :hoses
   resources :books
   resources :profiles
   resources :users
