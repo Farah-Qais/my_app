@@ -1,0 +1,89 @@
+Class Methods are the methods that are defined inside the class, 
+public class methods can be accessed with the help of objects. 
+The method is marked as private by default, when a method is defined outside of the class definition. 
+By default, methods are marked as public which is defined in the class definition.
+
+In previous lectures we wrote
+Has_one & has_many in our model Inside the user
+
+And these are all called a class method
+For example, If we want to write an example, we should put (self) and write it this way:
+def self.full_name  
+because In the class method, we always put (self), to be a class method
+
+examples:
+
+1) def self.hello
+    puts "Hello, I'm F."
+    end
+
+2) def self.school
+    students
+    end 
+
+3) def self.Book
+     authorname
+    end
+
+And if we want to call something of the previous examples like (All Books) .........In the Terminal of the project we write first thing
+Rails c
+And then Book.all
+It will show me all the books
+And if we want to call a name
+Book.find(1) 
+And to apply the class method , For example, we write (book.) in the terminal and write all the method after the word (self):
+(Book.hello)
+(info.class)
+(info.Book)
+
+
+Instance methods are used when you are required to act on a specific instance of a class. 
+When you need to introduce a functionality that corresponds to the identity of an instance, you should use the instance method.
+In this way, it is not permissible to put a (self)....like this: def generate_number_from_user
+
+examples:
+
+1) def full_name
+   firstname+lastname
+   end 
+
+2) def class
+  teacher+students
+  end 
+
+3) def self.car
+   color+price
+   end 
+
+And if we want to call something of the previous examples like(one_book) .........In the Terminal of the project we write reload!
+and then .....User.find(1)
+It will show me the book
+And to apply the class method , For example, we write (User.) in the terminal .....frome his name we write (User.find(1).generate_number_from_user)
+(User.first.full_name)
+(User.first.class)
+(User.first.car)
+
+substantially:
+A class method provides functionality to a class itself....
+while an instance method provides functionality to one instance of a class....
+
+
+I dont know if you want a way to convert from instance method to class method or not?
+but however....
+
+here we have an instance method 
+def full_name
+    firstname+lastname
+    end 
+
+and now We make it a Class Method and 
+put the instance variables inside it....
+
+def self.full_name
+    self.first.firstname+self.first.lastname
+    end 
+
+    and cll it:
+    User.full_name
+
+Thanks for your time and sorry for the delay :)
