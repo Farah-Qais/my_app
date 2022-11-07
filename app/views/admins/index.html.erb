@@ -2,13 +2,29 @@
 
 <h1>Admins</h1>
 
-<div id="admins">
-  <% @admins.each do |admin| %>
-    <%= render admin %>
-    <p>
-      <%= link_to "Show this admin", admin %>
-    </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">first_name</th>
+      <th scope="col">last_name</th>
+      <th scope="col">age</th>
+      <th scope="col">identifier</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @admins.each do |admin|%> 
+    <tr>
+      <th scope="row"><%= admin.id %></th>
+      <td><%= admin.first_name %></td>
+      <td><%= admin.last_name %></td>
+      <td><%= admin.age %></td>
+      <td><%= admin.identifier %></td>
+      <td><%= link_to 'show', admin_path(admin.id), class:"btn btn-primary btn-sm" %></td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
 <%= link_to "New admin", new_admin_path %>

@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_092948) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
+    t.string "identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,8 +77,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_092948) do
   end
 
   create_table "user2s", force: :cascade do |t|
+    t.string "name"
     t.string "username"
     t.string "password"
+    t.string "email"
+    t.string "identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

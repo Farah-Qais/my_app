@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.integer :user_id
       t.string :title
       t.integer :year
-
+      
       t.timestamps
     end
   end

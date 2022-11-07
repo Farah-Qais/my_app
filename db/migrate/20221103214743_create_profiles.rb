@@ -3,8 +3,8 @@ class CreateProfiles < ActiveRecord::Migration[7.0]
     create_table :profiles do |t|
       t.integer :user_id
       t.string :address
-      t.string :phone
-
+      t.string :phone   
+      
       t.timestamps
     end
   end
