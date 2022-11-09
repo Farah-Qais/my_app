@@ -10,6 +10,7 @@
       <th scope="col">last_name</th>
       <th scope="col">age</th>
       <th scope="col">identifier</th>
+      <th scope="col">location</th>
       <th scope="col">action</th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
       <td><%= admin.last_name %></td>
       <td><%= admin.age %></td>
       <td><%= admin.identifier %></td>
+      <td><%= admin.location%></td>
       <td><%= link_to 'show', admin_path(admin.id), class:"btn btn-primary btn-sm" %></td>
     </tr>
   <% end %>
