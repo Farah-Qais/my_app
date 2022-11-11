@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<%= button_to "sign out",  destroy_admin_session_path, method: :delete,form:{data:{turbo_confirm:"Are you sure you want to sgin out of Admins on all browsers?"}}%>
+<%= button_to "sign out",  destroy_admin_session_path, method: :delete,form:{data:{turbo_confirm:"Are you sure you want to sign out of Admins on all browsers?"}}%>
 
 <h1>Admins</h1>
 <%=current_admin.email%>
