@@ -1,7 +1,8 @@
 class Admin < ApplicationRecord
-    validates :first_name, :presence =>true,length: {minimum: 2,maximum:24}
-    validates :last_name, :presence =>true,length: {minimum: 2,maximum:24}
-    validates :age, :presence =>true,length: {minimum: 1,maximum:3}
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
     validates :identifier,presence:true
     validates :location,presence:true
 
@@ -16,7 +17,7 @@ class Admin < ApplicationRecord
   self.identifier = "#{"hellow world"}*-*#{Date.today}"
   end
 
-  before_update :display_location_admin
+  before_validation :display_location_admin
   private
   def display_location_admin
   self.location = "#{13.to_s(2)}#{rand(2**1024).to_s(36).upcase[0..9]}#{"hellow".method(:count).inspect}"
