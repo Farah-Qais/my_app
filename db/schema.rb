@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_114018) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_14_145303) do
   create_table "admins", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -26,6 +26,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_114018) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "book2s", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "author", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author"], name: "index_book2s_on_author"
+    t.index ["title"], name: "index_book2s_on_title"
+  end
+
+  create_table "book3s", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book4s", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
@@ -51,6 +74,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_114018) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "car2s", force: :cascade do |t|
+    t.string "make", null: false
+    t.string "model", null: false
+    t.string "year", null: false
+    t.string "vin", null: false
+    t.string "color", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color"], name: "index_car2s_on_color"
+    t.index ["make"], name: "index_car2s_on_make"
+    t.index ["model"], name: "index_car2s_on_model"
+    t.index ["vin"], name: "index_car2s_on_vin"
+    t.index ["year"], name: "index_car2s_on_year"
+  end
+
+  create_table "car4s", force: :cascade do |t|
+    t.string "make", null: false
+    t.string "model", null: false
+    t.string "year", null: false
+    t.string "vin", null: false
+    t.string "color", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color"], name: "index_car4s_on_color"
+    t.index ["make"], name: "index_car4s_on_make"
+    t.index ["model"], name: "index_car4s_on_model"
+    t.index ["vin"], name: "index_car4s_on_vin"
+    t.index ["year"], name: "index_car4s_on_year"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "user_id"
     t.string "tybe"
@@ -65,6 +118,43 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_114018) do
     t.string "vin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chapter1s", force: :cascade do |t|
+    t.text "body"
+    t.integer "book3_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book3_id"], name: "index_chapter1s_on_book3_id"
+  end
+
+  create_table "chapter2s", force: :cascade do |t|
+    t.text "body"
+    t.integer "book3_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book3_id"], name: "index_chapter2s_on_book3_id"
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.text "body"
+    t.integer "book4_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book4_id"], name: "index_chapters_on_book4_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "serial", null: false
+    t.string "version", null: false
+    t.string "platform", null: false
+    t.integer "book2_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book2_id"], name: "index_devices_on_book2_id"
+    t.index ["platform"], name: "index_devices_on_platform"
+    t.index ["serial"], name: "index_devices_on_serial"
+    t.index ["version"], name: "index_devices_on_version"
   end
 
   create_table "hoses", force: :cascade do |t|
@@ -135,4 +225,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_114018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chapter1s", "book3s"
+  add_foreign_key "chapter2s", "book3s"
+  add_foreign_key "chapters", "book4s"
+  add_foreign_key "devices", "book2s"
 end
